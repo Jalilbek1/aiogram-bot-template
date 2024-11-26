@@ -1,8 +1,12 @@
 from aiogram import Dispatcher
-# from . import custom_filter
+
 from loader import dp
-# from . import AdminFilter
+# from .admins import AdminFilter
+from .group_chat import IsGroup
+from .private_chat import IsPrivate
+
 
 if __name__ == "filters":
-    # dp.filters_factory.bind(is_admin)
-    pass
+    # dp.filters_factory.bind(AdminFilter)
+    dp.filters_factory.bind(IsGroup)
+    dp.filters_factory.bind(IsPrivate)
